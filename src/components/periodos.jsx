@@ -1,21 +1,23 @@
 import React, { Component } from "react";
 
 class Periodos extends Component {
-  state = {
-    periodos: [2019, 2018]
-  };
+  state = {};
   render() {
     return (
-      <React.Fragment>
-        Seleccione un año de cálculo:&nbsp;
-        <select>
-          {this.state.periodos.map(periodo => (
-            <option key={periodo} vaue={periodo}>
+      <div className="input-group mb-3">
+        <div className="input-group-prepend">
+          <label className="input-group-text" htmlFor="inputAnioCalculo">
+            Año
+          </label>
+        </div>
+        <select className="custom-select" id="inputAnioCalculo">
+          {this.props.ciclos.map(periodo => (
+            <option key={periodo} value={periodo}>
               {periodo}
             </option>
           ))}
         </select>
-      </React.Fragment>
+      </div>
     );
   }
 }

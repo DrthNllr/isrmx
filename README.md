@@ -1,3 +1,3 @@
-# isrmx
+# isrmx - Calculaodra ISR
 
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/isrmx)
+Aplicación para calcular el Impuesto Sobre la Renta
