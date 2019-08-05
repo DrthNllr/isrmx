@@ -8,7 +8,7 @@ import CampoImporte from "./components/campoImporte";
 function App() {
   return (
     <div className="card App">
-      <h5 className="card-header">Calculadora ISR</h5>
+      <h5 className="card-header">Calculadora de ISR</h5>
       <div className="card-body">
         <Periodos ciclos={getPeriodos()} />
         <TiposPeriodo tiposPeriodo={getTipoPeriodos()} />
@@ -18,6 +18,7 @@ function App() {
           &nbsp; Calcular
         </button>
       </div>
+      <div className="card-footer">&copy; 2019</div>
     </div>
   );
 }
