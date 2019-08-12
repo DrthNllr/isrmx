@@ -6,15 +6,21 @@ class CampoImporte extends Component {
     return (
       <div className="input-group mb-3">
         <div className="input-group-prepend">
-          <span className="input-group-text" id="basic-addon1">
+          <label
+            className="input-group-text"
+            id="basic-addon1"
+            htmlFor="inputImporte"
+          >
             Importe
-          </span>
+          </label>
         </div>
         <input
+          id="inputImporte"
           type="text"
           className="form-control"
           placeholder="Importe gravado"
           aria-label="Importe gravado"
+          defaultValue="7252.66"
         />
       </div>
     );

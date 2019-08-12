@@ -10,7 +10,11 @@ class Periodos extends Component {
             Año
           </label>
         </div>
-        <select className="custom-select" id="inputAnioCalculo">
+        <select
+          className="custom-select"
+          id="inputAnioCalculo"
+          defaultValue="Mensual"
+        >
           {this.props.ciclos.map(periodo => (
             <option key={periodo} value={periodo}>
               {periodo}
