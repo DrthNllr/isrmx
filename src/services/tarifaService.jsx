@@ -31,7 +31,7 @@ const tarifas_mensual = [
   }
 ];
 
-const subsidio_mensiual = [
+const subsidio_mensual = [
   {
     2019: [
       { lim_inf: 0.01, lim_sup: 1768.96, subsidio: 407.02 },
@@ -62,15 +62,101 @@ const subsidio_mensiual = [
   }
 ];
 
-export function getTarifas(tipoPeriodo, anio) {
-  const tarifas = [];
+export function getTarifas(tipoPeriodo, anio, importe) {
+  let tarifas = [];
   switch (tipoPeriodo) {
     case "mensual":
-      tarifas = tarifas_mensual[anio];
+      tarifas_mensual[anio].each(function(i, v) {
+        if (i.lim_inf >= importe && (i.lim_sup <= importe || i.lim_sup == null))
+          tarifas = i;
+      });
       break;
     default:
       tarifas = [];
       break;
   }
   return tarifas;
+}
+export function getSubsidio(tipoPeriodo, anio, importe) {
+  let subsidio = [];
+  switch (tipoPeriodo) {
+    case "mensual":
+      subsidio_mensual[anio].each(function(i, v) {
+        if (i.lim_inf <= importe && (i.lim_sup >= importe || i.lim_sup == null))
+          subsidio = i;
+      });
+      break;
+    default:
+      subsidio = [];
+      break;
+  }
+  return subsidio;
+}
+
+export function calculaISR(tipoPeriodo, anio, importe) {
+  return [
+    {
+      _id: 0,
+      descripcion: "Ingreso mensual",
+      valor: "7252.66",
+      icono: "arrow-circle-o-right",
+      tipo: "$"
+    },
+    {
+      _id: 1,
+      descripcion: "Lim. Inf",
+      valor: "4910.19",
+      icono: "minus",
+      tipo: "$"
+    },
+    {
+      _id: 2,
+      descripcion: "Base",
+      valor: "2342.47",
+      icono: "arrow-circle-o-right",
+      tipo: "$"
+    },
+    {
+      _id: 3,
+      descripcion: "Tasa",
+      valor: "11",
+      icono: "times",
+      tipo: "%"
+    },
+    {
+      _id: 4,
+      descripcion: "Resultado",
+      valor: "254.86",
+      icono: "arrow-circle-o-right",
+      tipo: "$"
+    },
+    {
+      _id: 5,
+      descripcion: "Cuota fija",
+      valor: "283.33",
+      icono: "plus",
+      tipo: "$"
+    },
+    {
+      _id: 6,
+      descripcion: "ISR",
+      valor: "543.19",
+      icono: "exclamation-circle",
+      tipo: "$"
+    },
+    {
+      _id: 7,
+      descripcion: "Subsidio",
+      valor: "217.61",
+      icono: "minus",
+      tipo: "$"
+    },
+    {
+      _id: 99,
+      descripcion: "ISR o Subsidio",
+      valor: "325.58",
+      icono: "exclamation-circle",
+      tipo: "$"
+    }
+  ];
 }
