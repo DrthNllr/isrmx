@@ -1,6 +1,6 @@
-const periodos = [2019, 2018, 2017];
+const periodos = [2019, 2018];
 
-const tipoPeriodos = ["Quincenal", "Mensual", "Anual"];
+const tipoPeriodos = ["Mensual", "Anual"];
 
 export function getPeriodos() {
   return periodos;

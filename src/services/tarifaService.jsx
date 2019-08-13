@@ -31,6 +31,37 @@ const tarifas_mensual = [
   }
 ];
 
+const subsidio_mensiual = [
+  {
+    2019: [
+      { lim_inf: 0.01, lim_sup: 1768.96, subsidio: 407.02 },
+      { lim_inf: 1768.97, lim_sup: 2653.38, subsidio: 406.83 },
+      { lim_inf: 2653.39, lim_sup: 3472.84, subsidio: 406.62 },
+      { lim_inf: 3472.85, lim_sup: 3537.87, subsidio: 392.77 },
+      { lim_inf: 3537.88, lim_sup: 4446.15, subsidio: 382.46 },
+      { lim_inf: 4446.16, lim_sup: 4717.18, subsidio: 354.23 },
+      { lim_inf: 4717.19, lim_sup: 5335.42, subsidio: 324.87 },
+      { lim_inf: 5335.43, lim_sup: 6224.67, subsidio: 294.63 },
+      { lim_inf: 6224.68, lim_sup: 7113.9, subsidio: 253.54 },
+      { lim_inf: 7113.91, lim_sup: 7382.33, subsidio: 217.61 },
+      { lim_inf: 7382.34, lim_sup: null, subsidio: 0.0 }
+    ],
+    2018: [
+      { lim_inf: 0.01, lim_sup: 1768.96, subsidio: 407.02 },
+      { lim_inf: 1768.97, lim_sup: 2653.38, subsidio: 406.83 },
+      { lim_inf: 2653.39, lim_sup: 3472.84, subsidio: 406.62 },
+      { lim_inf: 3472.85, lim_sup: 3537.87, subsidio: 392.77 },
+      { lim_inf: 3537.88, lim_sup: 4446.15, subsidio: 382.46 },
+      { lim_inf: 4446.16, lim_sup: 4717.18, subsidio: 354.23 },
+      { lim_inf: 4717.19, lim_sup: 5335.42, subsidio: 324.87 },
+      { lim_inf: 5335.43, lim_sup: 6224.67, subsidio: 294.63 },
+      { lim_inf: 6224.68, lim_sup: 7113.9, subsidio: 253.54 },
+      { lim_inf: 7113.91, lim_sup: 7382.33, subsidio: 217.61 },
+      { lim_inf: 7382.34, lim_sup: null, subsidio: 0.0 }
+    ]
+  }
+];
+
 export function getTarifas(tipoPeriodo, anio) {
   const tarifas = [];
   switch (tipoPeriodo) {
