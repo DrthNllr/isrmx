@@ -24,7 +24,7 @@ class Calculadora extends Component {
                 onClick={this.handleCalculo()}
               >
                 <i className="fa fa-calculator fa-faw" />
-                &nbsp;Calcular
+                &nbsp;Calcular mi ISR
               </button>
             </div>
             <div className="col-md-6">
