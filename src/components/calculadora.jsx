@@ -10,7 +10,9 @@ class Calculadora extends Component {
   state = {
     importe: 7252.66
   };
-  handleCalculo = () => {};
+  handleCalculo = () => {
+    console.log("calculando ISR de ",this.state.importe);
+  };
   handleUpdateImporte = (importeGravado) => {
     console.log("importe actualizado", importeGravado);
     this.setState({importe: importeGravado});
@@ -29,7 +31,7 @@ class Calculadora extends Component {
                 onChange={this.handleUpdateImporte} />
               <button
                 className="btn btn-block btn-primary card-link"
-                onClick={this.handleCalculo()}
+                onClick={this.handleCalculo}
               >
                 <i className="fa fa-calculator fa-faw" />
                 &nbsp;Calcular mi ISR
