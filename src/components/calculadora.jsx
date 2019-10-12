@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+{}import React, { Component } from "react";
 import Periodos from "./periodos";
 import { getPeriodos, getTipoPeriodos } from "../services/periodoService";
 import { calculaISR } from "../services/tarifaService";
@@ -7,8 +7,14 @@ import CampoImporte from "./campoImporte";
 import Resultado from "./resultado";
 
 class Calculadora extends Component {
-  state = {};
+  state = {
+    importe: 7252.66
+  };
   handleCalculo = () => {};
+  handleUpdateImporte = (importeGravado) => {
+    console.log("importe actualizado", importeGravado);
+    this.setState({importe: importeGravado});
+  };
   render() {
     return (
       <div className="card App">
@@ -18,7 +24,9 @@ class Calculadora extends Component {
             <div className="col-md-6 col-lg-4 mb-3">
               <Periodos ciclos={getPeriodos()} />
               <TiposPeriodo tiposPeriodo={getTipoPeriodos()} />
-              <CampoImporte />
+              <CampoImporte 
+                importe = {this.state.importe} 
+                onChange={this.handleUpdateImporte} />
               <button
                 className="btn btn-block btn-primary card-link"
                 onClick={this.handleCalculo()}

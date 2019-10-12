@@ -20,7 +20,8 @@ class CampoImporte extends Component {
           className="form-control"
           placeholder="Importe gravado"
           aria-label="Importe gravado"
-          defaultValue="7252.66"
+          defaultValue={this.props.importe}
+          onChange={() => this.props.onChange(this.props.id)}
         />
       </div>
     );
