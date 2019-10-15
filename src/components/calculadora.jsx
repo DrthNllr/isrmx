@@ -1,4 +1,4 @@
-{}import React, { Component } from "react";
+import React, { Component } from "react";
 import Periodos from "./periodos";
 import { getPeriodos, getTipoPeriodos } from "../services/periodoService";
 import { calculaISR } from "../services/tarifaService";
@@ -8,10 +8,14 @@ import Resultado from "./resultado";
 
 class Calculadora extends Component {
   state = {
-    importe: 7252.66
+    importe: 7252.66,
+    periodo: 'mensual',
+    anio: 2019,
+    resultadoCalculo: []
   };
   handleCalculo = () => {
     console.log("calculando ISR de ",this.state.importe);
+    this.setState({'resultadoCalculo' : calculaISR(this.state.periodo, this.state.anio, this.state.importe)})
   };
   handleUpdateImporte = (importeGravado) => {
     console.log("importe actualizado", importeGravado);
@@ -38,7 +42,7 @@ class Calculadora extends Component {
               </button>
             </div>
             <div className="col-md-6">
-              <Resultado resultados={calculaISR()} />
+              <Resultado resultados={this.state.resultadoCalculo} />
             </div>
           </div>
         </div>
