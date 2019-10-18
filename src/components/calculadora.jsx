@@ -8,7 +8,7 @@ import Resultado from "./resultado";
 
 class Calculadora extends Component {
   state = {
-    importe: 7252.66,
+    importe: 0,
     periodo: 'mensual',
     anio: 2019,
     resultadoCalculo: []
