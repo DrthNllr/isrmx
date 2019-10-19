@@ -1,29 +1,21 @@
 import React, { Component } from "react";
+import { MDBInput} from "mdbreact";
 
 class CampoImporte extends Component {
   state = {};
   render() {
     return (
-      <div className="input-group mb-3">
-        <div className="input-group-prepend">
-          <label
-            className="input-group-text"
-            id="basic-addon1"
-            htmlFor="inputImporte"
-          >
-            Importe
-          </label>
-        </div>
-        <input
-          id="inputImporte"
-          type="text"
-          className="form-control"
+      <MDBInput 
+        material
+        containerClassName="mb-3"
+        label="Importe"
+        prepend="$"
+        defaultValue={this.props.importe}
+        onChange={e => this.props.onChange(e.target.value)}
           placeholder="Importe gravado"
           aria-label="Importe gravado"
-          defaultValue={this.props.importe}
-          onChange={e => this.props.onChange(e.target.value)}
-        />
-      </div>
+      >
+      </MDBInput>
     );
   }
 }

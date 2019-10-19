@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import Periodos from "./periodos";
 import { getPeriodos, getTipoPeriodos } from "../services/periodoService";
 import { calculaISR } from "../services/tarifaService";
+import { MDBBtn, MDBContainer} from "mdbreact";
+import Periodos from "./periodos";
 import TiposPeriodo from "./tiposPeriodo";
 import CampoImporte from "./campoImporte";
 import Resultado from "./resultado";
+
 
 class Calculadora extends Component {
   state = {
@@ -26,6 +28,7 @@ class Calculadora extends Component {
       <div className="card App">
         <h5 className="card-header">Calculadora de ISR</h5>
         <div className="card-body">
+          <MDBContainer>
           <div className="row justify-content-md-center">
             <div className="col-md-6 col-lg-4 mb-3">
               <Periodos ciclos={getPeriodos()} />
@@ -33,18 +36,15 @@ class Calculadora extends Component {
               <CampoImporte 
                 importe = {this.state.importe} 
                 onChange={this.handleUpdateImporte} />
-              <button
-                className="btn btn-block btn-primary card-link"
-                onClick={this.handleCalculo}
-              >
-                <i className="fa fa-calculator fa-faw" />
-                &nbsp;Calcular mi ISR
-              </button>
+              <MDBBtn className="btn-block" onClick={this.handleCalculo} color="primary" >
+                    Calcular mi ISR
+                    </MDBBtn>
             </div>
             <div className="col-md-6">
               <Resultado resultados={this.state.resultadoCalculo} />
             </div>
           </div>
+          </MDBContainer>
         </div>
         <div className="card-footer">&copy; 2019</div>
       </div>

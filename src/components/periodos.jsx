@@ -1,26 +1,33 @@
 import React, { Component } from "react";
+import { MDBSelect } from "mdbreact";
 
 class Periodos extends Component {
-  state = {};
+  state = {
+    options: [
+      {
+        text: "Option 1",
+        value: "1"
+      },
+      {
+        text: "Option 2",
+        value: "2"
+      },
+      {
+        text: "Option 3", 
+        value: "3"
+      }
+    ]
+  };
   render() {
     return (
-      <div className="input-group mb-3">
-        <div className="input-group-prepend">
-          <label className="input-group-text" htmlFor="inputAnioCalculo">
-            Año
-          </label>
-        </div>
-        <select
-          className="custom-select"
-          id="inputAnioCalculo"
-          defaultValue="Mensual"
-        >
-          {this.props.ciclos.map(periodo => (
-            <option key={periodo} value={periodo}>
-              {periodo}
-            </option>
-          ))}
-        </select>
+      <div>
+        {/*
+        <MDBSelect
+          options={this.state.options}
+          selected="Choose your option"
+          label="Example label"
+        />
+        */}
       </div>
     );
   }
