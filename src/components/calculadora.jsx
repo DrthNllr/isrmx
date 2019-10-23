@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getPeriodos, getTipoPeriodos } from "../services/periodoService";
-import { calculaISR } from "../services/tarifaService";
+import { calculaISR, regresaMensaje } from "../services/tarifaService";
 import { MDBBtn, MDBContainer} from "mdbreact";
 import Periodos from "./periodos";
 import TiposPeriodo from "./tiposPeriodo";
@@ -16,6 +16,10 @@ class Calculadora extends Component {
     resultadoCalculo: []
   };
   handleCalculo = () => {
+    if(this.state.importe == 0){
+      this.setState({'resultadoCalculo' :regresaMensaje("Debe de indiciar un importe")});
+      return;
+    }
     console.log("calculando ISR de ",this.state.importe);
     this.setState({'resultadoCalculo' : calculaISR(this.state.periodo, this.state.anio, this.state.importe)})
   };
@@ -23,6 +27,10 @@ class Calculadora extends Component {
     console.log("importe actualizado", importeGravado);
     this.setState({importe: importeGravado});
   };
+  handleCambioPeriodo = (anioCalculo) => {
+    console.log("Año de cáálculo cambiado a :", anioCalculo);
+    this.setState({anio: anioCalculo});
+  }
   render() {
     return (
       <div className="card App">
@@ -31,7 +39,7 @@ class Calculadora extends Component {
           <MDBContainer>
           <div className="row justify-content-md-center">
             <div className="col-md-6 col-lg-4 mb-3">
-              <Periodos ciclos={getPeriodos()} />
+              <Periodos ciclos={getPeriodos()} onChange={this.handleCambioPeriodo} />
               <TiposPeriodo tiposPeriodo={getTipoPeriodos()} />
               <CampoImporte 
                 importe = {this.state.importe} 

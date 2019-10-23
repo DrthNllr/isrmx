@@ -5,11 +5,11 @@ class TiposPeriodo extends Component {
     return (
       <div className="input-group mb-3">
         <div className="input-group-prepend">
-          <label className="input-group-text" htmlFor="inputPeriodo">
+          <label className="input-group-text" htmlFor="inputAnio">
             Periodo
           </label>
         </div>
-        <select className="custom-select" id="inputPeriodo">
+        <select className="custom-select">
           {this.props.tiposPeriodo.map(tipo => (
             <option key={tipo} value={tipo}>
               {tipo}
