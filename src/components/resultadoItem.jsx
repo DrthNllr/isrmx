@@ -50,12 +50,13 @@ class ResultadoItem extends Component {
             {this.props.descripcion}
           </h6>
           <span>
-            {this.props.tipo === "x" ?
-                (this.props.tipo === "%"
-                  ? this.props.valor + " %"
-                  : "$ " + this.formatMoney(this.props.valor, 2, ".", ",")
+            {this.props.tipo === "X" ?
+              this.props.valor
+              : (this.props.tipo === "%"
+                  ? (this.props.valor + " %")
+                  : ("$ " + this.formatMoney(this.props.valor, 2, ".", ","))
                 )
-              :this.props.valor}
+              }
           </span>
         </div>
       </li>

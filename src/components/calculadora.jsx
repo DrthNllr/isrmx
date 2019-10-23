@@ -10,7 +10,7 @@ import Resultado from "./resultado";
 
 class Calculadora extends Component {
   state = {
-    importe: 0,
+    importe: 0.0,
     periodo: 'mensual',
     anio: 2019,
     resultadoCalculo: []
